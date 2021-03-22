@@ -4,7 +4,7 @@ module.exports = {
 		indentation: 'tab',
 		'at-rule-no-vendor-prefix': true,
 		'declaration-no-important': true,
-		'declaration-property-value-blacklist': [
+		'declaration-property-value-disallowed-list': [
 			{
 				'/^background/': [
 					'http:',
@@ -19,7 +19,7 @@ module.exports = {
 			},
 			{
 				message: 'Transitioning all properties, absolute background URLs and `border: none` are '
-					+ 'black-listed (declaration-property-value-blacklist)',
+					+ 'disallowed (declaration-property-value-disallowed-list)',
 			},
 		],
 		'font-family-name-quotes': 'always-where-recommended',
