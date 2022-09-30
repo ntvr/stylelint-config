@@ -1,68 +1,42 @@
 module.exports = {
 	extends: 'stylelint-config-standard',
 	rules: {
-		indentation: 'tab',
-		'at-rule-no-vendor-prefix': true,
-		'declaration-no-important': true,
+
+		// Disable ESlint as we intentionally break alphabetical order rule here.
+		/* eslint-disable sort-keys */
+
+		// Override `stylelint-config-standard`:
+		indentation: 'tab',	// Use tabs for indentation.
+		'string-quotes': 'single', // Use single quotes for strings.
+
+		// Extend with more strict rules:
+		'declaration-no-important': true, // Except for utility classes and third-party overrides, !important can be avoided.
 		'declaration-property-value-disallowed-list': [
 			{
-				'/^background/': [
+				'/^background/': [ // Background images should be stored locally.
 					'http:',
 					'https:',
 				],
-				'/^border/': [
-					'none',
-				],
-				'/^transition/': [
+				'/^transition/': [ // Only hardware-accelerable properties should be transitioned.
 					'/all/',
 				],
 			},
 			{
-				message: 'Transitioning all properties, absolute background URLs and `border: none` are '
-					+ 'disallowed (declaration-property-value-disallowed-list)',
+				message: 'Transitioning all properties and absolute background URLs are '
+          + 'not allowed (declaration-property-value-disallowed-list)',
 			},
 		],
-		'font-family-name-quotes': 'always-where-recommended',
-		'function-url-quotes': 'never',
-		'max-line-length': 120,
-		'max-nesting-depth': [
+		'max-nesting-depth': [ // Because too complex nesting is hard to read.
 			2, {
 				ignore: ['blockless-at-rules'],
 			},
 		],
-		'media-feature-name-no-vendor-prefix': true,
-		'property-no-vendor-prefix': true,
-		'selector-attribute-quotes': 'always',
-		'selector-max-compound-selectors': 3,
-		'selector-max-id': 0,
-		'selector-max-specificity': '0,4,0',
-		'selector-max-universal': 0,
-		'selector-nested-pattern': [
-			'^&:',
-			{
-				message: 'Only pseudo-classes and pseudo-elements can be nested (selector-nested-pattern)',
-			},
-		],
-		'selector-no-qualifying-type': true,
-		'selector-no-vendor-prefix': true,
-		'value-no-vendor-prefix': true,
-		'at-rule-no-unknown': [
-			true,
-			{
-				ignoreAtRules: [
-					'content',
-					'each',
-					'else',
-					'else if',
-					'error',
-					'for',
-					'function',
-					'if',
-					'include',
-					'mixin',
-					'return',
-				],
-			},
-		],
+		'selector-max-compound-selectors': 3, // Keep selector specificity as low as possible by default.
+		'selector-max-id': 0, // In most cases, IDs are for JavaScript, not CSS.
+		'selector-max-specificity': '0,4,0', // Keep selector specificity as low as possible by default.
+		'selector-max-universal': 0, // Most of the time, we should know what elements or classes we are targeting.
+		'selector-no-qualifying-type': true, // In most cases, it only needlessly increases selector specificity.
+
+		/* eslint-enable sort-keys */
 	},
 };
