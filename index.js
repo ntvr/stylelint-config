@@ -1,13 +1,12 @@
 module.exports = {
-	extends: 'stylelint-config-standard',
+	extends: [
+		'stylelint-config-standard',
+		'stylelint-stylistic/config',
+	],
 	rules: {
 
 		// Disable ESlint as we intentionally break alphabetical order rule here.
 		/* eslint-disable sort-keys */
-
-		// Override `stylelint-config-standard`:
-		indentation: 'tab',	// Use tabs for indentation.
-		'string-quotes': 'single', // Use single quotes for strings.
 
 		// Extend with more strict rules:
 		'declaration-no-important': true, // Except for utility classes and third-party overrides, !important can be avoided.
@@ -23,7 +22,7 @@ module.exports = {
 			},
 			{
 				message: 'Transitioning all properties and absolute background URLs are '
-          + 'not allowed (declaration-property-value-disallowed-list)',
+					+ 'not allowed (declaration-property-value-disallowed-list)',
 			},
 		],
 		'max-nesting-depth': [ // Because too complex nesting is hard to read.
@@ -36,6 +35,14 @@ module.exports = {
 		'selector-max-specificity': '0,4,0', // Keep selector specificity as low as possible by default.
 		'selector-max-universal': 0, // Most of the time, we should know what elements or classes we are targeting.
 		'selector-no-qualifying-type': true, // In most cases, it only needlessly increases selector specificity.
+
+		'stylistic/indentation': 'tab', // Use tabs for indentation.
+		'stylistic/string-quotes': 'single', // Use single quotes for strings.
+		'stylistic/block-closing-brace-newline-after': [
+			'always', {
+				ignoreAtRules: ['if', 'else'],
+			},
+		],
 
 		/* eslint-enable sort-keys */
 	},
