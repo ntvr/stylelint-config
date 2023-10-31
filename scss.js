@@ -1,13 +1,12 @@
 module.exports = {
-	extends: 'stylelint-config-standard-scss',
+	extends: [
+		'stylelint-config-standard-scss',
+		'stylelint-stylistic/config',
+	],
 	rules: {
 
 		// Disable ESlint as we intentionally break alphabetical order rule here.
 		/* eslint-disable sort-keys */
-
-		// Fix conflict of `stylelint-config-standard-scss` with our main config:
-		indentation: 'tab',	// Use tabs for indentation.
-		'string-quotes': 'single', // Use single quotes for strings.
 
 		// Turn `comment-no-empty` back on for empty CSS comments since `scss/comment-no-empty` is turned off later on:
 		// https://github.com/stylelint-scss/stylelint-scss/blob/master/src/rules/comment-no-empty/README.md
@@ -51,6 +50,14 @@ module.exports = {
 			'^(_?[a-z][a-z0-9]*)(-[a-z0-9]+)*$',
 			{
 				message: 'Expected placeholder to be kebab-case (private placeholders must start with _)',
+			},
+		],
+
+		'stylistic/indentation': 'tab', // Use tabs for indentation.
+		'stylistic/string-quotes': 'single', // Use single quotes for strings.
+		'stylistic/block-closing-brace-newline-after': [
+			'always', {
+				ignoreAtRules: ['if', 'else'],
 			},
 		],
 

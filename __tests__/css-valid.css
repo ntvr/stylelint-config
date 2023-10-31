@@ -1,5 +1,5 @@
-@import 'x.css';
-@import 'y.css';
+@import url('x.css');
+@import url('y.css');
 
 /**
  * Multi-line comment
@@ -38,7 +38,7 @@
 
 /* Single-line comment */
 
-@media (min-width: 60em) {
+@media (width >= 60em) {
 	.selector {
 		/* Flush to parent comment */
 		transform: translate(1, 1) scale(3);
@@ -53,7 +53,7 @@
 }
 
 /* Flush single line comment */
-@media screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
+@media screen and (resolution >= 192dpi), screen and (resolution >= 2dppx) {
 	.selector {
 		height: 10rem;
 		margin: 10px;

@@ -14,7 +14,9 @@ Netvor's shareable collection of configs for [Stylelint]:
 - extends [stylelint-config-standard],
 - adds rules to **encourage low specificity** and **avoid nesting**,
 - gives preference to indentation of **tab**,
-- includes additional configs for **SCSS**, **CSS Modules** and **Kebab classes**.
+- includes additional configs for **SCSS**, **CSS Modules** and **Kebab classes**,
+- uses [stylelint-stylistic] plugin to cover some rules that are no longer
+		supported by Stylelint itself.
 
 ## Installation
 
@@ -199,3 +201,4 @@ or
 [CSS Modules]: https://github.com/css-modules/css-modules
 [stylelint-config-css-modules]: https://github.com/pascalduez/stylelint-config-css-modules
 [VisionApps stylelint config]: https://github.com/visionappscz/stylelint-config
+[stylelint-stylistic]: https://github.com/elirasza/stylelint-stylistic
