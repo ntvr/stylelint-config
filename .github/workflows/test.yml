@@ -6,11 +6,11 @@ on:
 jobs:
  build:
 
-  runs-on: ubuntu-20.04
+  runs-on: ubuntu-22.04
 
   strategy:
    matrix:
-    node-version: [ 14, 16 ]
+    node-version: [ 18, 20, 22 ]
 
   steps:
    - name: Clone repository
@@ -25,9 +25,9 @@ jobs:
      uses: actions/cache@v1
      with:
       path: ~/.npm
-      key: ${{ runner.os }}-node-v${{ matrix.node }}-${{ hashFiles('package-lock.json') }}-${{ hashFiles('.github/workflows/test.yml') }}
+      key: ${{ runner.os }}-node-v${{ matrix.node }}-${{ hashFiles('yarn.lock') }}-${{ hashFiles('.github/workflows/test.yml') }}
       restore-keys: |
-       ${{ runner.OS }}-node-v${{ matrix.node }}-${{ hashFiles('package-lock.json') }}-${{ hashFiles('.github/workflows/test.yml') }}
+       ${{ runner.OS }}-node-v${{ matrix.node }}-${{ hashFiles('yarn.lock') }}-${{ hashFiles('.github/workflows/test.yml') }}
        ${{ runner.OS }}-node-v${{ matrix.node }}-
 
    - name: Install

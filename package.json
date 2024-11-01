@@ -26,92 +26,37 @@
 		"scss.js"
 	],
 	"engines": {
-		"node": ">=14",
-		"npm": ">=6"
+		"node": ">=18",
+		"npm": ">=9"
 	},
 	"scripts": {
 		"lint": "npm run lint:js && npm run lint:css",
 		"lint:css": "npm run lint:css:main && npm run lint:css:order && npm run lint:css:scss && npm run lint:css:cssModules",
-		"lint:css:main": "stylelint --config index.js __tests__/css-valid.css",
-		"lint:css:order": "stylelint --config order.js __tests__/css-valid.css",
-		"lint:css:scss": "stylelint --config scss.js __tests__/scss-valid.scss",
-		"lint:css:kebab-case": "stylelint --config kebab-classes.js __tests__/css-valid.css",
-		"lint:css:cssModules": "stylelint --config cssModules.js __tests__/css-modules-valid.css",
-		"lint:js": "eslint . --ignore-path .gitignore",
+		"lint:css:main": "stylelint --config index.js __tests__/__fixtures__/css-valid.css",
+		"lint:css:order": "stylelint --config order.js __tests__/__fixtures__/css-valid.css",
+		"lint:css:scss": "stylelint --config scss.js __tests__/__fixtures__/scss-valid.scss",
+		"lint:css:kebab-case": "stylelint --config kebab-classes.js __tests__/__fixtures__/css-valid.css",
+		"lint:css:cssModules": "stylelint --config cssModules.js __tests__/__fixtures__/css-modules-valid.css",
+		"lint:js": "eslint . --ext .js,.mjs",
+		"lint:js:fix": "eslint . --ext .js,.jsx --fix",
 		"pretest": "npm run lint",
-		"test": "jest",
-		"watch": "jest --watch"
+		"test": "node --test",
+		"watch": "node --test --watch"
 	},
 	"peerDependencies": {
-		"stylelint": "^15.11.0"
+		"stylelint": "^16.10.0"
 	},
 	"dependencies": {
-		"stylelint-config-standard": "^34.0.0",
-		"stylelint-config-standard-scss": "^11.1.0",
-		"stylelint-order": "^6.0.4",
-		"stylelint-stylistic": "^0.4.5"
+		"@stylistic/stylelint-plugin": "^3.1.1",
+		"stylelint-config-standard": "^36.0.1",
+		"stylelint-config-standard-scss": "^13.1.0",
+		"stylelint-order": "^6.0.4"
 	},
 	"devDependencies": {
-		"@babel/eslint-parser": "^7.19.1",
-		"eslint": "^8.24.0",
-		"eslint-config-airbnb": "^19.0.4",
-		"eslint-plugin-import": "^2.26.0",
-		"eslint-plugin-jsx-a11y": "^6.6.1",
-		"eslint-plugin-react": "^7.31.8",
-		"eslint-plugin-react-hooks": "^4.6.0",
-		"jest": "^29.1.2",
-		"stylelint": "^15.11.0"
-	},
-	"eslintConfig": {
-		"env": {
-			"es6": true,
-			"node": true,
-			"jest": true
-		},
-		"extends": "airbnb",
-		"parser": "@babel/eslint-parser",
-		"parserOptions": {
-			"requireConfigFile": false
-		},
-		"rules": {
-			"indent": [
-				"error",
-				"tab",
-				{
-					"SwitchCase": 1,
-					"VariableDeclarator": 1,
-					"outerIIFEBody": 1,
-					"MemberExpression": 1,
-					"FunctionDeclaration": {
-						"parameters": 1,
-						"body": 1
-					},
-					"FunctionExpression": {
-						"parameters": 1,
-						"body": 1
-					},
-					"CallExpression": {
-						"arguments": 1
-					}
-				}
-			],
-			"max-len": [
-				"error",
-				120,
-				4,
-				{
-					"ignoreUrls": true,
-					"ignoreComments": false,
-					"ignoreRegExpLiterals": true,
-					"ignoreStrings": true,
-					"ignoreTemplateLiterals": true
-				}
-			],
-			"no-tabs": "off"
-		}
-	},
-	"jest": {
-		"testEnvironment": "node",
-		"verbose": true
+		"eslint": "^8.57.1",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-plugin-import": "^2.31.0",
+		"postcss": "^8.4.47",
+		"stylelint": "^16.10.0"
 	}
 }
