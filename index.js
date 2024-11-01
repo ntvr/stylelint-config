@@ -1,14 +1,10 @@
 module.exports = {
-	extends: [
-		'stylelint-config-standard',
-		'stylelint-stylistic/config',
+	extends: 'stylelint-config-standard',
+	plugins: [
+		'@stylistic/stylelint-plugin',
 	],
 	rules: {
-
-		// Disable ESlint as we intentionally break alphabetical order rule here.
-		/* eslint-disable sort-keys */
-
-		// Extend with more strict rules:
+		// Add more strict rules:
 		'declaration-no-important': true, // Except for utility classes and third-party overrides, !important can be avoided.
 		'declaration-property-value-disallowed-list': [
 			{
@@ -36,14 +32,12 @@ module.exports = {
 		'selector-max-universal': 0, // Most of the time, we should know what elements or classes we are targeting.
 		'selector-no-qualifying-type': true, // In most cases, it only needlessly increases selector specificity.
 
-		'stylistic/indentation': 'tab', // Use tabs for indentation.
-		'stylistic/string-quotes': 'single', // Use single quotes for strings.
-		'stylistic/block-closing-brace-newline-after': [
+		'@stylistic/indentation': 'tab', // Use tabs for indentation.
+		'@stylistic/string-quotes': 'single', // Use single quotes for strings.
+		'@stylistic/block-closing-brace-newline-after': [
 			'always', {
 				ignoreAtRules: ['if', 'else'],
 			},
 		],
-
-		/* eslint-enable sort-keys */
 	},
 };

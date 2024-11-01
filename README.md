@@ -1,26 +1,26 @@
 # @ntvr/stylelint-config
 
-[![npm version](https://img.shields.io/npm/v/@ntvr/stylelint-config?label=npm%20package&logo=npm)](https://www.npmjs.org/package/@ntvr/stylelint-config)
-[![Node version](https://img.shields.io/node/v/@ntvr/stylelint-config.svg?style=flat&logo=nodedotjs)](http://nodejs.org/download/)
-[![Stylelint version](https://img.shields.io/npm/dependency-version/@ntvr/stylelint-config/peer/stylelint?logo=stylelint)][Stylelint]
-[![Build status](https://github.com/ntvr/stylelint-config/workflows/Build%20and%20test/badge.svg)](https://github.com/ntvr/stylelint-config/actions)
-[![Downloads per month](https://img.shields.io/npm/dm/@ntvr/stylelint-config.svg?style=flat)](https://npmcharts.com/compare/@ntvr/stylelint-config)
-[![HitCount](http://hits.dwyl.com/@ntvr/stylelint-config.svg?style=flat)](http://hits.dwyl.com/@ntvr/stylelint-config)
+[![npm version](https://img.shields.io/npm/v/@ntvr/stylelint-config?label=npm%20package&logo=npm)][npm-ntvr-stylelint-config]
+[![Node version](https://img.shields.io/node/v/@ntvr/stylelint-config.svg?style=flat&logo=nodedotjs)][node-js]
+[![Stylelint version](https://img.shields.io/npm/dependency-version/@ntvr/stylelint-config/peer/stylelint?logo=stylelint)][repo-stylelint]
+[![Build status](https://github.com/ntvr/stylelint-config/workflows/Build%20and%20test/badge.svg)][actions-ntvr-stylelint-config]
+[![Downloads per month](https://img.shields.io/npm/dm/@ntvr/stylelint-config.svg?style=flat)][npmcharts-ntvr-stylelint-config]
+[![HitCount](http://hits.dwyl.com/@ntvr/stylelint-config.svg?style=flat)][dwyl-hits-ntvr-stylelint-config]
 
-Netvor's shareable collection of configs for [Stylelint]:
+**Netvor's shareable collection of configs for [Stylelint][repo-stylelint]**
 
-ℹ️ **Note:** This package is heavily based on [VisionApps stylelint config]
+ℹ️ **Note:** This package is heavily based on [VisionApps stylelint config][repo-visionapps-stylelint-config]
 
-- extends [stylelint-config-standard],
+- extends [stylelint-config-standard][repo-stylelint-config-standard],
 - adds rules to **encourage low specificity** and **avoid nesting**,
 - gives preference to indentation of **tab**,
 - includes additional configs for **SCSS**, **CSS Modules** and **Kebab classes**,
-- uses [stylelint-stylistic] plugin to cover some rules that are no longer
+- uses [stylelint-stylistic][repo-stylelint-stylistic] plugin to cover some rules that are no longer
 		supported by Stylelint itself.
 
 ## Installation
 
-Install [Stylelint] and this config:
+Install [Stylelint][repo-stylelint] and this config:
 
 ```bash
 $ npm install --save-dev stylelint @ntvr/stylelint-config
@@ -76,7 +76,7 @@ case with our other extending configs.
 ## Usage with SCSS
 
 To lint SCSS files (i.e. `*.scss`, not `*.sass`), add the `scss` config that
-extends [stylelint-config-standard-scss], fixes its incompatibilities with our
+extends [stylelint-config-standard-scss][repo-stylelint-config-standard-scss], fixes its incompatibilities with our
 main config, and overrides some rules to better work with complex stylesheets:
 
 ```json
@@ -96,7 +96,7 @@ To see the rules that this config uses, please read the
 
 ## Usage with CSS Modules
 
-To lint CSS files in project that leverages [CSS Modules], drop in the
+To lint CSS files in project that leverages [CSS Modules][repo-css-modules], drop in the
 `cssModules` config that fixes key incompatibilities of CSS Modules syntax with
 the main config:
 
@@ -133,8 +133,8 @@ Sass (which we encourage) and thus **are not recognized** by this config.
 To see the rules that this config uses, please read the
 [`cssModules` config itself](./cssModules.js).
 
-ℹ️ There is a popular [stylelint-config-css-modules] config that recognizes all
-features of CSS Modules.
+ℹ️ There is a popular [stylelint-config-css-modules][repo-stylelint-config-css-modules] config 
+that recognizes all features of CSS Modules.
 
 ## Usage with Kebab classes check
 
@@ -195,10 +195,15 @@ or
 }
 ```
 
-[Stylelint]: https://github.com/stylelint/stylelint
-[stylelint-config-standard]: https://github.com/stylelint/stylelint-config-standard
-[stylelint-config-standard-scss]: https://github.com/stylelint-scss/stylelint-config-standard-scss
-[CSS Modules]: https://github.com/css-modules/css-modules
-[stylelint-config-css-modules]: https://github.com/pascalduez/stylelint-config-css-modules
-[VisionApps stylelint config]: https://github.com/visionappscz/stylelint-config
-[stylelint-stylistic]: https://github.com/elirasza/stylelint-stylistic
+[actions-ntvr-stylelint-config]: https://github.com/ntvr/stylelint-config/actions
+[dwyl-hits-ntvr-stylelint-config]: http://hits.dwyl.com/@ntvr/stylelint-config
+[node-js]: https://nodejs.org/download
+[npm-ntvr-stylelint-config]: https://www.npmjs.org/package/@ntvr/stylelint-config
+[npmcharts-ntvr-stylelint-config]: https://npmcharts.com/compare/@ntvr/stylelint-config
+[repo-css-modules]: https://github.com/css-modules/css-modules
+[repo-stylelint-config-css-modules]: https://github.com/pascalduez/stylelint-config-css-modules
+[repo-stylelint-config-standard-scss]: https://github.com/stylelint-scss/stylelint-config-standard-scss
+[repo-stylelint-config-standard]: https://github.com/stylelint/stylelint-config-standard
+[repo-stylelint-stylistic]: https://github.com/elirasza/stylelint-stylistic
+[repo-stylelint]: https://github.com/stylelint/stylelint
+[repo-visionapps-stylelint-config]: https://github.com/visionappscz/stylelint-config
